@@ -1,0 +1,6 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+ <qresource> 
+  <file>images/mds_icon_22x22.png</file>
+ </qresource> 
+</RCC>
