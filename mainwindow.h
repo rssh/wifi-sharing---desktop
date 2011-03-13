@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QSystemTrayIcon>
+#include <QCloseEvent>
+#include <QtGui/QApplication>
 
 namespace Ui {
     class MainWindow;
@@ -26,6 +28,17 @@ private slots:
      * called when system tray icon is activated.
      **/
     void isActivated(QSystemTrayIcon::ActivationReason);
+
+    void isActivated()
+    { isActivated(QSystemTrayIcon::Unknown); }
+
+    void quit()
+    { QApplication::quit(); }
+
+
+protected:
+
+    void closeEvent(QCloseEvent *event);
 
 private:
     Ui::MainWindow *ui;
