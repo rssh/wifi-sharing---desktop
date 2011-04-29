@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>533</width>
-    <height>379</height>
-   </rect>
-  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -22,7 +14,7 @@
       </property>
       <widget class="QWidget" name="networkStateTab">
        <attribute name="title">
-        <string>Сейчас в сети</string>
+        <string>Now in net</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
@@ -31,20 +23,13 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <widget class="QListView" name="listView"/>
-          <widget class="QWebView" name="webView">
-           <property name="url">
-            <url>
-             <string>about:blank</string>
-            </url>
-           </property>
-          </widget>
          </widget>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="widget">
        <attribute name="title">
-        <string>Настройки</string>
+        <string>Options</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -53,78 +38,73 @@
            <property name="fieldGrowthPolicy">
             <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
            </property>
-           <item row="3" column="0">
-            <widget class="QLabel" name="deviceNameLabel">
-             <property name="text">
-              <string>Имя  устройства</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QLineEdit" name="deviceNameLineEdit"/>
-           </item>
-           <item row="4" column="0">
-            <widget class="QCheckBox" name="greetingCheckBox">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QLabel" name="greetingCheckboxLabel">
-             <property name="text">
-              <string>Посылать приветствие незнакомым устройствам</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="greetingLabel">
-             <property name="text">
-              <string>Приветствие</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QTextEdit" name="greetingTextEdit"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="PathPropertiesWidgetr" native="true">
-          <layout class="QFormLayout" name="formLayout_2">
-           <property name="fieldGrowthPolicy">
-            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-           </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="scriptsLabel">
-             <property name="text">
-              <string>Путь к скриптам</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="scriptsLineEdit"/>
-           </item>
            <item row="1" column="0">
-            <widget class="QLabel" name="dbPathLabel">
+            <widget class="QLabel" name="showLabel">
              <property name="text">
-              <string>Путь к БД</string>
+              <string>Show</string>
              </property>
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QLineEdit" name="dbPathLineEdit"/>
+            <widget class="QRadioButton" name="allUpnpDevicesRadioButton">
+             <property name="text">
+              <string>all upnp devices</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QRadioButton" name="onlyPhonesRadioButton">
+             <property name="text">
+              <string>only mobile</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="webDavLabel">
+             <property name="text">
+              <string>WebDav </string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="webDavStartCommandEdit"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="webdavStartLabel">
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>start</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="webDavStopCommandEdit"/>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="webdavStopLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>stop</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
         </item>
        </layout>
-      </widget>
-      <widget class="QWidget" name="knownDevicesTab">
-       <attribute name="title">
-        <string>Известные устройства</string>
-       </attribute>
       </widget>
      </widget>
     </item>
@@ -135,20 +115,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>533</width>
+     <width>372</width>
      <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

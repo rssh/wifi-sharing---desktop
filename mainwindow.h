@@ -5,6 +5,12 @@
 #include <QSystemTrayIcon>
 #include <QCloseEvent>
 #include <QtGui/QApplication>
+#include <QNetworkRequest>
+
+#include <HUpnpCore/HControlPoint>
+
+
+#include "upnpdeviceslistmodel.h"
 
 namespace Ui {
     class MainWindow;
@@ -18,32 +24,58 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void createTrayIcon();
-
     void showTrayIcon();
+
+    bool isDone() const
+    { return done; }
 
 private slots:
 
-    /**
-     * called when system tray icon is activated.
-     **/
-    void isActivated(QSystemTrayIcon::ActivationReason);
+    void foreground();
 
-    void isActivated()
-    { isActivated(QSystemTrayIcon::Unknown); }
+    void quit();
 
-    void quit()
-    { QApplication::quit(); }
+    void rootDeviceOnline(Herqq::Upnp::HClientDevice*);
 
+    void rootDeviceOffline(Herqq::Upnp::HClientDevice*);
+
+    void scanDevices();
+
+    void rescanDevices(bool onlyMobile);
+
+    void activatedDeviceEntry(const QModelIndex & index);
+
+    void urlLoadFinished(bool ok);
+
+    void urlUnsupportedContent(QNetworkReply*);
+
+    void urlDownloadRequested(const QNetworkRequest& request);
 
 protected:
 
     void closeEvent(QCloseEvent *event);
 
 private:
+
+    void createTrayIcon();
+
+    void startUpnpMonitoring();
+
+
+
+private:
     Ui::MainWindow *ui;
 
     QSystemTrayIcon* trayIcon;
+
+    Herqq::Upnp::HControlPoint* upnpControlPoint;
+    UpnpDevicesListModel*       upnpRootDevices;
+
+
+    volatile bool done;
+
+
+
 };
 
 #endif // MAINWINDOW_H

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit
+QT       += core gui webkit network
 RESOURCES = mds.qrc
 
 TARGET = mds
@@ -36,8 +36,10 @@ else {
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    upnpdeviceslistmodel.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    upnpdeviceslistmodel.h
 
 FORMS    += mainwindow.ui
