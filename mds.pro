@@ -10,6 +10,8 @@ RESOURCES = mds.qrc
 TARGET = mds
 TEMPLATE = app
 
+CONFIG += qt debug
+
 hupnp_home = /home/rssh/packages/herqq/hupnp/trunk/herqq/hupnp
 
 INCLUDEPATH += $$hupnp_home/include
@@ -43,3 +45,4 @@ HEADERS  += mainwindow.h \
     upnpdeviceslistmodel.h
 
 FORMS    += mainwindow.ui
+
