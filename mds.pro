@@ -10,7 +10,7 @@ RESOURCES = mds.qrc
 TARGET = mds
 TEMPLATE = app
 
-CONFIG += qt debug
+CONFIG += qt release
 
 hupnp_home = /home/rssh/packages/herqq/hupnp/trunk/herqq/hupnp
 
@@ -46,3 +46,5 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
+OTHER_FILES += \
+    mdsmonitor.sh
