@@ -1,0 +1,12 @@
+
+
+   This is browser of upnp devices, with possibility to launch
+browser for device presentation url. 
+
+Used as a desktop part of wi-fi file sharing package. (see http://wifi-fileshare.blogspot.com/)
+
+Dependencies: 
+  Qt : http://qt.nokia.com/
+  Hupnp: http://www.herqq.org/
+
+Binary packages for Windows, Linux and MacOS comin soon.
