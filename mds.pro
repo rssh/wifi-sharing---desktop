@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit network
+QT       += core gui network
 RESOURCES = mds.qrc
 
 TARGET = mds
@@ -12,17 +12,24 @@ TEMPLATE = app
 
 CONFIG += qt release
 
-hupnp_home = /home/rssh/packages/herqq/hupnp/trunk/herqq/hupnp
+win32 {
+   hupnp_src_home = c:/packages/herqq/herqq-1.0.0/hupnp
+   hupnp_bin_home = c:/packages/herqq/herqq-build-desktop/hupnp
+}
+else {
+   hupnp_src_home = /home/rssh/packages/herqq/hupnp/trunk/herqq/hupnp
+   hupnp_bin_home = /home/rssh/packages/herqq/hupnp/trunk/herqq/hupnp
+}
 
-INCLUDEPATH += $$hupnp_home/include
+INCLUDEPATH += $$hupnp_src_home/include
 
-LIBS += -L"$$hupnp_home/bin" -lHUpnp \
-        -L"$$hupnp_home/lib/qtsoap-2.7-opensource/lib"
+LIBS += -L"$$hupnp_bin_home/bin" -lHUpnp \
+        -L"$$hupnp_bin_home/lib/qtsoap-2.7-opensource/lib"
 
-QMAKE_LIBDIR += $$hupnp_home/bin $$hupnp_home/lib/qtsoap-2.7-opensource/lib
+QMAKE_LIBDIR += $$hupnp_bin_home/bin $$hupnp_bin_home/lib/qtsoap-2.7-opensource/lib
 
 
-WIN32 {
+win32 {
    debug {
      LIBS += -lQtSolutions_SOAP-2.7d
    }
