@@ -45,11 +45,6 @@ private slots:
 
     void activatedDeviceEntry(const QModelIndex & index);
 
-    void urlLoadFinished(bool ok);
-
-    void urlUnsupportedContent(QNetworkReply*);
-
-    void urlDownloadRequested(const QNetworkRequest& request);
 
 protected:
 

@@ -53,5 +53,19 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
+TRANSLATIONS += translations/mds_en.ts \
+                translations/mds_ru.ts \
+                translations/mds_uk.ts
+
+CODECFORTR = UTF-8
+
+
+
 OTHER_FILES += \
-    mdsmonitor.sh
+    mdsmonitor.sh \
+    translations/mds_en.ts \
+    translations/mds_ru.ts \
+    translations/mds_uk.ts \
+    translations/mds_en.qm \
+    translations/mds_ru.qm \
+    translations/mds_uk.qm

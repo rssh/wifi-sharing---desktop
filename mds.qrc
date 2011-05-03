@@ -1,6 +1,8 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
- <qresource> 
-  <file>images/mds_icon_22x22.png</file>
- </qresource> 
+<RCC>
+    <qresource prefix="/">
+        <file>images/mds_icon_22x22.png</file>
+        <file>translations/mds_en.qm</file>
+        <file>translations/mds_ru.qm</file>
+        <file>translations/mds_uk.qm</file>
+    </qresource>
 </RCC>

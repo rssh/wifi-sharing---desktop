@@ -1,4 +1,6 @@
 #include <QtGui/QApplication>
+#include <QTranslator>
+#include <QTextCodec>
 #include "mainwindow.h"
 #include <iostream>
 
@@ -8,7 +10,16 @@ void msgHandler(QtMsgType type, const char *msg);
 int main(int argc, char *argv[])
 {
     qInstallMsgHandler(msgHandler);
+
+
     QApplication a(argc, argv);
+    QString locale = QLocale::system().name();
+
+    QTranslator translator;
+    translator.load(QString("mds_") + locale,":/translations");
+    QTextCodec::setCodecForTr(QTextCodec::codecForName("utf8"));
+    a.installTranslator(&translator);
+
 
     MainWindow w;
 
@@ -18,7 +29,7 @@ int main(int argc, char *argv[])
         w.show();
     }
 
-    int retval;
+    int retval = 0;
     while(! w.isDone()) {
        retval = a.exec();
     }

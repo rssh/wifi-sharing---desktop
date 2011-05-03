@@ -93,6 +93,7 @@ bool UpnpDevicesListModel::addIfApply(const Herqq::Upnp::HClientDevice* device)
         return false;
       }
   } else {
+      //
       return false;
   }
 }

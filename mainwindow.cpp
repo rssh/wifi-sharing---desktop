@@ -47,7 +47,7 @@ void MainWindow::createTrayIcon()
 {
 
     trayIcon = new QSystemTrayIcon(QIcon(":/images/mds_icon_22x22.png"));
-    trayIcon -> setToolTip(tr("Mobile device fs"));
+    trayIcon -> setToolTip(tr("WiFi share"));
 
     //connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,
     //                         SLOT(isActivated(QSystemTrayIcon::ActivationReason)));
@@ -174,20 +174,4 @@ void MainWindow::activatedDeviceEntry(const QModelIndex & index)
 }
 
 
-void MainWindow::urlLoadFinished(bool ok)
-{
-  std::cerr << "url load finished, ok="<< ok << std::endl;
-}
-
-
-void MainWindow::urlUnsupportedContent(QNetworkReply* reply)
-{
- QString str = reply->url().toString();
- std::cerr << "unsupported content fired:" << str.toLocal8Bit().data() << std::endl;
-}
-
-void MainWindow::urlDownloadRequested(const QNetworkRequest& request)
-{
- std::cerr << "download requested:"  << std::endl;
-}
 
